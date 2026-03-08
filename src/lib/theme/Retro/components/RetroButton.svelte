@@ -27,8 +27,11 @@
     }
 
     button.sm {
-        font-size: 15px;
+        font-size: 12px;
         width: fit-content;
-        min-width: 100px;
+        min-width: fit-content;
+        text-wrap: nowrap;
+        height: fit-content;
     }
+
 </style>

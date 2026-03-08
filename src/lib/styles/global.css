@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&family=Zen+Dots&display=swap');
 
-
+* {
+    box-sizing: border-box;
+}
 
 html, body {
     padding: 0;
@@ -16,4 +18,36 @@ button {
     font-weight: bold;
     font-family: "Zen Dots";
     letter-spacing: 1px;
+}
+
+h1, h2, h3, h4 {
+    padding: 0;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+    background: white;
+}
+
+::-webkit-scrollbar-track {
+  background: whtie;
+  border: 3px solid black;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(196,196,196);
+  border: 3px solid black;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(196,196,196);
+}
+
+.custom-scroll {
+    scrollbar-color: #ff3e00 #222222;
+
+  /* Options: auto (default), thin, or none (hidden) */
+  scrollbar-width: thin;
 }
