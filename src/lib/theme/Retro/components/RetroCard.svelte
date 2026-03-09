@@ -36,8 +36,8 @@
     <div id="card" class={size} out:blur={{duration: 300}} in:blur={{duration: 300}}>
         <header>
             <div id="buttons">
-                <button onclick={hide}></button>
-                <button></button>
+                <button onclick={hide} title="close"></button>
+                <button title="unknown"></button>
             </div>
             <h1>{title}</h1>
         </header>
@@ -110,6 +110,7 @@
 
     div#card.md {
         min-width: 500px;
+        width: 500px;
         height: 400px;
     }
 

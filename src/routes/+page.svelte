@@ -1,13 +1,12 @@
 
 <script lang="ts">
     import profilePicture from "$lib/assets/profile.png"
-    import placeholder from "$lib/assets/placeholder.jpg"
     import arrow from "$lib/assets/icons/diagonal-arrow.png"
 	import RetroButton from "$lib/theme/Retro/components/RetroButton.svelte";
 	import RetroLink from "$lib/theme/Retro/components/RetroLink.svelte";
 	import RetroCard from "$lib/theme/Retro/components/RetroCard.svelte";
-
-    let description: string = "The URMC hub is a tool tha combine multiple application into one web application. Built with go backend and svelte frontend. The tool is imporve the day to day work for a service desk agentThe URMC hub is a tool tha combine multiple application into one web application. Built with go backend and svelte frontend. The tool is imporve the day to day work for a service desk agentThe URMC hub is a tool tha combine multiple application into one web application. Built with go backend and svelte frontend. The tool is imporve the day to day work for a service desk agentThe URMC hub is a tool tha combine multiple application into one web application. Built with go backend and svelte frontend. The tool is imporve the day to day work for a service desk agentThe URMC hub is a tool tha combine multiple application into one web application. Built with go backend and svelte frontend. The tool is imporve the day to day work for a service desk agent"
+    import { URMCHUB, type Project } from "$lib/context/project";
+	import RetroTag from "$lib/theme/Retro/components/RetroTag.svelte";
 
 </script>
 
@@ -16,7 +15,7 @@
         <div>
             <h1>Hello <br/> I'm Dustin</h1>
             <p>
-                I am a Go, Svelte developers. Love to try different things
+                                I am a Go, Svelte developers. Love to try different things
             </p>
             <RetroButton >Download CV</RetroButton>
         </div>
@@ -36,24 +35,27 @@
         </section>
         <h1>Projects</h1>
         <div id="projects">
-            {@render Card(placeholder, description, "URMC-HUB", "Description")}
-            {@render Card(placeholder, description, "URMC-HUB", "Description")}
-            {@render Card(placeholder, description, "URMC-HUB", "Description")}
-            {@render Card(placeholder, description, "URMC-HUB", "Description")}
+            {@render Card(URMCHUB)}
         </div>
     </section>
 </main>
 
-{#snippet Card(imgPath: string, description: string, title: string, articleTitle: string)}
-    <RetroCard size="md" {title}>
+
+{#snippet Card(project: Project)}
+    <RetroCard size="md" title={project.title}>
     <section class="card-content">
         <div class="img-container">
-            <img src={imgPath} alt=""/>
+            <img src={project.imgPath} alt=""/>
         </div>
         <div class="description-container">
-            <h1>{articleTitle}</h1>
-            <p>{description}</p>
-            <RetroButton>View Project</RetroButton>
+            <h1>Description</h1>
+            <p>{project.description}</p>
+            <RetroLink attributes={{href: URMCHUB.githubLink}}>View Project</RetroLink>
+        </div>
+        <div class="tags-container">
+            {#each project.tags as tag}
+                <RetroTag value={tag.title} icon={tag.iconPath}/>
+            {/each}
         </div>
     </section>
 </RetroCard>
@@ -113,11 +115,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 100%;
         gap: 3rem;
     }
 
     div.links img {
-        transition: 0.3s ease;
+        transition: 0.3s ease-in-out;
         height: 20px;
     }
 
@@ -140,6 +143,7 @@
     section.gray {
         background: rgb(196, 196, 196);
     }
+
 
     div#projects {
         display: flex;
@@ -180,6 +184,13 @@
 
     section.card-content img {
         width: 100%;
+    }
+
+    section.card-content div.tags-container {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        padding: 0.5rem; 
     }
 
 

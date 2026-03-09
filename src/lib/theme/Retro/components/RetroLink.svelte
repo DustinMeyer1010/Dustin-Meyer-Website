@@ -3,18 +3,21 @@
 
 
     let {
-        children,
         attributes,
         missingBorder,
+        size = "sm",
+        children,
     } : {
-        children: Snippet
+
         attributes?: any
         missingBorder?: "right" | "left" | "top" | "bottom"
+        size?: "sm" | "md" | "lg"
+        children: Snippet
     } = $props()
 </script>
 
 
-<a {...attributes} class={missingBorder}>
+<a {...attributes} target="_blank" class={`${missingBorder} ${size}`}>
     {@render children()}
 </a>
 
@@ -31,10 +34,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 30px;
-        padding: 0.3rem 1rem;
+        min-height: 40px;
+        padding: 0.5rem;
         background: rgb(196, 196, 196);
         border: 5px solid black;
+    }
+
+    a.sm {
+        width: 200px;
     }
 
     a.right {
