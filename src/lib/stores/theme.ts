@@ -1,9 +1,15 @@
+import { browser } from "$app/environment";
 import { writable } from "svelte/store";
 
 export type Theme = "light" | "dark"
 
 function getInitialTheme(): Theme {
+
+
+
   if (typeof localStorage !== undefined) {
+
+    if (!browser) return "light"
     const saved = localStorage.getItem("theme") as Theme | null
     if (saved) return saved;
   }

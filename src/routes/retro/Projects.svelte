@@ -1,91 +1,47 @@
 <script lang="ts">
 	import arrow from '$lib/retro/assets/icons/diagonal-arrow.png';
 	import RetroLink from '$lib/retro/components/RetroLink.svelte';
-	import RetroCard from '$lib/retro/components/RetroCard.svelte';
-	import { URMCHUB, type Project } from '$lib/retro/context/project';
-	import RetroTag from '$lib/retro/components/RetroTag.svelte';
+	import { Projects } from '$lib/retro/context/project';
+	import Card from './Card.svelte';
+	import Link from './Link.svelte';
 </script>
 
-<section class="gray" id="projects">
-	<section id="quick-links">
+<section>
+	<div id="quick-links">
 		<h2>Quick Links</h2>
 		<div>
-			{@render Link('Project', '/project', 'right')}
-			{@render Link('About', '/about', 'right')}
-			{@render Link('Contact', '/contact', 'right')}
-			{@render Link('Project', '/project')}
+			<Link name={'Projects'} path={'/retro/projects'} border={'right'} />
+			<Link name={'About'} path={'/retro/about'} border={'right'} />
+			<Link name={'Contact'} path={'/retro/contact'} border={'right'} />
+			<Link name={'Projects'} path={'/retro/projects'} />
 		</div>
-	</section>
-	<h1>Projects</h1>
+	</div>
+	<h1>Highlighted Projects</h1>
 	<div id="projects">
-		{@render Card(URMCHUB)}
+		{#each Projects as p}
+			<Card project={p} />
+		{/each}
 	</div>
 </section>
 
-{#snippet Card(project: Project)}
-	<RetroCard size="md" title={project.title}>
-		<section class="card-content">
-			<div class="img-container">
-				<img src={project.imgPath} alt="" />
-			</div>
-			<div class="description-container">
-				<h1>Description</h1>
-				<p>{project.description}</p>
-				<RetroLink attributes={{ href: URMCHUB.githubLink }}>View Project</RetroLink>
-			</div>
-			<div class="tags-container">
-				{#each project.tags as tag}
-					<RetroTag value={tag.title} icon={tag.iconPath} />
-				{/each}
-			</div>
-		</section>
-	</RetroCard>
-{/snippet}
-
-{#snippet Link(name: string, path: string, border?: 'left' | 'right' | 'top' | 'bottom')}
-	<RetroLink attributes={{ href: path }} missingBorder={border}>
-		<div class="links">
-			<span>{name}</span>
-			<img src={arrow} alt="" />
-		</div>
-	</RetroLink>
-{/snippet}
-
 <style>
-	section#quick-links {
+	div#quick-links {
 		position: absolute;
 		top: -50px;
 		left: 50%;
 		transform: translateX(-50%);
 	}
 
-	section#quick-links h2 {
+	div#quick-links h2 {
 		padding: 0;
 		margin: 0;
 	}
 
-	section#quick-links div {
+	div#quick-links div {
 		display: flex;
 	}
 
-	div.links {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		width: 100%;
-		gap: 3rem;
-	}
-
-	div.links img {
-		transition: 0.3s ease-in-out;
-		height: 20px;
-	}
-
-	div.links:hover img {
-		transform: translate(4px, -4px);
-	}
-
-	section#projects {
+	section {
 		position: relative;
 		width: 100%;
 		box-sizing: border-box;
@@ -93,9 +49,6 @@
 		height: fit-content;
 		border-top: 5px solid black;
 		border-bottom: 5px solid black;
-	}
-
-	section.gray {
 		background: rgb(196, 196, 196);
 	}
 
@@ -108,42 +61,5 @@
 		height: fit-content;
 		padding: 1rem 1rem 3rem 0;
 		gap: 2rem;
-	}
-
-	section.card-content {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-
-	section.card-content div.img-container {
-		width: 100%;
-		height: 100px;
-		overflow: hidden;
-		border-bottom: 5px solid black;
-	}
-
-	section.card-content div.description-container {
-		padding: 1rem;
-	}
-
-	section.card-content div.description-container h1 {
-		font-size: 18px;
-	}
-
-	section.card-content div.description-container p {
-		font-size: 12px;
-	}
-
-	section.card-content img {
-		width: 100%;
-	}
-
-	section.card-content div.tags-container {
-		display: flex;
-		gap: 1rem;
-		flex-wrap: wrap;
-		padding: 0.5rem;
 	}
 </style>

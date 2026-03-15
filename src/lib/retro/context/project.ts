@@ -1,4 +1,4 @@
-import placeholder from "$lib/assets/placeholder.jpg"
+import { RetroIcons } from "../handler/icons"
 import { RetroTags } from "../handler/tags"
 
 export type Tag = {
@@ -11,17 +11,27 @@ export type Project = {
   description: string,
   title: string,
   githubLink: string,
+  pageLink: string | null,
   tags: Tag[]
 }
 
-export const URMCHUB: Project = {
-  imgPath: placeholder,
-  description: "\
-    The URMC hub is a tool that combines multiple applications into one. \
-    With a backend written in go and frontend written in svelte. It allows \
-    for service desk agents to pull active directory information quickly and \
-    in easy to view manner.",
+const URMC_HUB: Project = {
+  imgPath: RetroIcons.placeHolder,
+  description: "",
   title: "URMC-HUB",
   githubLink: "https://github.com/DustinMeyer1010/URMC-HUB/tree/2.0-master",
+  pageLink: "retro/projects/urmc-hub",
   tags: [RetroTags.go, RetroTags.svelte, RetroTags.sqlite, RetroTags.typescript, RetroTags.css, RetroTags.html, RetroTags.activeDirectory]
 }
+
+const SUSHI_AND_CHOPSTICKS: Project = {
+  imgPath: RetroIcons.placeHolder,
+  description: "",
+  title: "SUSHI AND CHOPSTICKS",
+  githubLink: "",
+  pageLink: "retro/projects/sushi-and-chopsticks",
+  tags: [RetroTags.go, RetroTags.terminal, RetroTags.gui],
+}
+
+
+export const Projects: Project[] = [URMC_HUB, SUSHI_AND_CHOPSTICKS]

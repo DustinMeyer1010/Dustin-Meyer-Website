@@ -11,8 +11,10 @@ export namespace RetroTags {
   export const css: Tag = { title: "CSS", iconPath: RetroIcons.css }
   export const python: Tag = { title: "Python", iconPath: RetroIcons.python }
   export const typescript: Tag = { title: "TypeScript", iconPath: RetroIcons.typescript }
-  export const sqlite: Tag = { title: "SQLite", iconPath: RetroIcons.Sqlite }
+  export const sqlite: Tag = { title: "SQLite", iconPath: RetroIcons.sqlite }
   export const activeDirectory: Tag = { title: "Active Directory", iconPath: RetroIcons.activeDirectory }
+  export const terminal: Tag = { title: "Terminal", iconPath: RetroIcons.terminal }
+  export const gui: Tag = { title: "GUI", iconPath: RetroIcons.GUI }
 
 }
 
