@@ -16,7 +16,7 @@
 <RetroLink attributes={{ href: path }} missingBorder={border}>
 	<div class="links">
 		<span>{name}</span>
-		<img src={RetroIcons.diagonalArrow} alt="" />
+		<img src={RetroIcons.DIAGONALARROW} alt="" />
 	</div>
 </RetroLink>
 

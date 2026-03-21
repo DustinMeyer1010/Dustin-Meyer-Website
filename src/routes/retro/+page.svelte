@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Intro from './Intro.svelte';
-	import Projects from './Projects.svelte';
+	import Intro from './components/Intro.svelte';
+	import Projects from './components/Projects.svelte';
 </script>
 
 <main>

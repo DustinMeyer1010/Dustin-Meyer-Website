@@ -1,6 +1,4 @@
 <script lang="ts">
-	import arrow from '$lib/retro/assets/icons/diagonal-arrow.png';
-	import RetroLink from '$lib/retro/components/RetroLink.svelte';
 	import { Projects } from '$lib/retro/context/project';
 	import Card from './Card.svelte';
 	import Link from './Link.svelte';

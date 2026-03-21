@@ -12,22 +12,22 @@ import DiagonalArrowIcon from "$lib/retro/assets/icons/diagonal-arrow.png"
 import GuiIcon from "$lib/retro/assets/icons/gui.png"
 import TerminalIcon from "$lib/retro/assets/icons/terminal.png"
 
-export namespace RetroIcons {
+export const RetroIcons = {
 
-  export const python: string = PtyhonIcon
-  export const css: string = CSSIcon
-  export const html: string = HTMLIcon
-  export const svelte: string = SvelteIcon
-  export const typescript: string = TypeScriptIcon
-  export const sqlite: string = SqliteIcon
-  export const activeDirectory: string = ActiveDirectoryIcon
-  export const go: string = GoIcon
-  export const placeHolder: string = PlaceHolderIcon
-  export const diagonalArrow: string = DiagonalArrowIcon
-  export const terminal: string = TerminalIcon
-  export const GUI: string = GuiIcon
+  PYTHON: PtyhonIcon,
+  CSS: CSSIcon,
+  HTML: HTMLIcon,
+  SVELTE: SvelteIcon,
+  TYPESCRIPT: TypeScriptIcon,
+  SQLITE: SqliteIcon,
+  ACTIVEDIRECTORY: ActiveDirectoryIcon,
+  GO: GoIcon,
+  PLACEHOLDER: PlaceHolderIcon,
+  DIAGONALARROW: DiagonalArrowIcon,
+  TERMINAL: TerminalIcon,
+  GUI: GuiIcon,
 
-}
+} as const;
 
 
 

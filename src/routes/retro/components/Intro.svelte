@@ -9,7 +9,7 @@
 		<p>I am a Go, Svelte developers. Love to try different things</p>
 		<RetroButton>Download CV</RetroButton>
 	</div>
-	<img src={RetroIcons.placeHolder} alt="" />
+	<img src={RetroIcons.PLACEHOLDER} alt="" />
 </section>
 
 <style>

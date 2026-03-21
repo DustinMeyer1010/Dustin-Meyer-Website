@@ -11,7 +11,7 @@
 		attributes?: any;
 		missingBorder?: 'right' | 'left' | 'top' | 'bottom';
 		size?: 'sm' | 'md' | 'lg';
-		redirect: boolean;
+		redirect?: boolean;
 		children: Snippet;
 	} = $props();
 </script>
@@ -57,4 +57,3 @@
 		border-bottom: none;
 	}
 </style>
-
